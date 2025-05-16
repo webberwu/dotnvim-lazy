@@ -50,6 +50,13 @@ vim.opt.colorcolumn = "120"
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 99
 
+-- Setup lazy.nvim
+require("lazy").setup("plugins", {
+    checker = {
+        enabled = false
+    },
+})
+
 vim.keymap.set("", "ms", "^", { noremap = true, desc = "go to begin of the line" })
 vim.keymap.set("", "me", "$", { noremap = true, desc = "go to end of the line" })
 vim.keymap.set("n", "mh", "<cmd>nohlsearch<cr>", { noremap = true, desc = "no highlighting" })
@@ -62,7 +69,7 @@ vim.keymap.set("i", "jk", "->", { noremap = true, silent = true })
 vim.keymap.set("i", "jl", "=>", { noremap = true, silent = true })
 
 -- Highlight the trailing whitespaces
-vim.api.nvim_set_hl(0, "TrailingWhitespace", { ctermfg = "red", bg = "red" })
+vim.api.nvim_set_hl(0, "TrailingWhitespace", { fg = "#F74971", bg = "#F74971" })
 vim.cmd([[match TrailingWhitespace /\s\+$/]])
 
 -- Auto reload while file changed
@@ -70,11 +77,4 @@ vim.opt.autoread = true
 vim.api.nvim_create_autocmd("CursorHold", {
     pattern = "*",
     command = "checktime",
-})
-
--- Setup lazy.nvim
-require("lazy").setup("plugins", {
-    checker = {
-        enabled = false
-    },
 })
