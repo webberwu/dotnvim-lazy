@@ -64,6 +64,9 @@ return {
                 windows = {
                     width = 45,
                 },
+                behaviour = {
+                    use_cwd_as_project_root = true,
+                },
             })
         end
     },
