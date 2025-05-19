@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 vim.loader.enable()
 
 -- Bootstrap lazy.nvim
@@ -30,7 +32,7 @@ vim.opt.mouse = ""
 vim.opt.modeline = true
 vim.opt.hidden = false
 vim.opt.cursorline = true
-vim.opt.backspace = { "indent", "eol", "start" }
+vim.opt.backspace = "indent,eol,start"
 vim.opt.history = 100
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4

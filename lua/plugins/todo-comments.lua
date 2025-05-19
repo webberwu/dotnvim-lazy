@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 return {
     {
         "folke/todo-comments.nvim",

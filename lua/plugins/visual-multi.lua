@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 return {
     {
         "mg979/vim-visual-multi",

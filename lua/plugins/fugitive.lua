@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 return {
     "tpope/vim-fugitive",
     config = function()
