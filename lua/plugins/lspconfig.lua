@@ -52,7 +52,7 @@ return {
                     ["textDocument/publishDiagnostics"] = function() end,
                 },
             },
-            psalm = {},
+            -- psalm = {},
             stimulus_ls = {},
             -- frontend
             eslint = {},
