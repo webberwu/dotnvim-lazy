@@ -79,8 +79,12 @@ return {
                 vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
             end
 
-            nmap('gD', vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-            -- nmap('gd', require "telescope.builtin".lsp_definitions, "[G]oto [D]efinition")
+            nmap('gd', function()
+                require('telescope.builtin').lsp_definitions({
+                    jump_type = 'never',
+                    reuse_win = false,
+                })
+            end, "[G]oto [D]efinition")
             nmap('gh', "<cmd>Lspsaga hover_doc<CR>", "Hover Documentation")
             nmap('gho', vim.lsp.buf.hover, "Hover Documentation")
             nmap('gi', require "telescope.builtin".lsp_implementations, "[G]oto [I]mplementation")
