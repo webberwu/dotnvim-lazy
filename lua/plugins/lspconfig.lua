@@ -22,7 +22,7 @@ return {
         }
     },
     config = function()
-        -- https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
         local servers = {
             lua_ls = {
                 settings = {
