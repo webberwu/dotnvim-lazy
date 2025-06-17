@@ -10,9 +10,9 @@ return {
     },
     keys = {
         { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", desc = "Find file" },
-        { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep({additional_args = {'--ignore-case'}})<cr>", desc = "Live grep" },
+        { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep({additional_args = {'--ignore-case', '--sort-files'}})<cr>", desc = "Live grep" },
         { "<leader>fhf", "<cmd>lua require('telescope.builtin').find_files({hidden = true, no_ignore = true})<cr>", desc = "Find file (hidden file included)" },
-        { "<leader>fhg", "<cmd>lua require('telescope.builtin').live_grep({additional_args = {'--hidden', '--no-ignore', '--ignore-case'}})<cr>", desc = "Live grep (hidden file included)" },
+        { "<leader>fhg", "<cmd>lua require('telescope.builtin').live_grep({additional_args = {'--hidden', '--no-ignore', '--ignore-case', '--sort-files'}})<cr>", desc = "Live grep (hidden file included)" },
         { "<leader>fb", "<cmd>lua require('telescope.builtin').buffers({ sort_mru = true })<cr>" },
         { "<leader>fo", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
         { "<leader>ft", "<cmd>lua require('telescope.builtin').help_tags()<cr>" },
