@@ -90,3 +90,15 @@ vim.api.nvim_create_autocmd("BufEnter", {
         end
     end,
 })
+
+-- Indent for specified file type
+vim.api.nvim_create_augroup("FileTypeIndent", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+    group = "FileTypeIndent",
+    pattern = { "vue", "typescript" },
+    callback = function()
+        vim.bo.tabstop = 2
+        vim.bo.shiftwidth = 2
+        vim.bo.expandtab = true
+    end,
+})
