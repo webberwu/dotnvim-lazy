@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global, redundant-parameter
+
 return {
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -11,9 +13,17 @@ return {
         },
         config = function()
             require("neo-tree").setup({
+                close_if_last_window = true,
                 window = {
                     mappings = {
-                        ["<C-t>"] = "open_tabnew",
+                        ["<C-t>"] = function(state)
+                            local node = state.tree:get_node()
+                            local filepath = node:get_id()
+                            -- open file in new tab
+                            vim.cmd("tabnew " .. filepath)
+                            -- focus neo-tree
+                            vim.cmd("wincmd p")
+                        end,
                         ["oa"] = "avante_add_files",
                     }
                 },
