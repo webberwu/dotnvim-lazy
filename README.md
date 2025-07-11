@@ -122,6 +122,7 @@ ln -s <YOUR_REPO_PATH> ~/.config/nvim
 | Lspsaga | `<leader>ca` | 顯示可用的程式碼操作 |
 | Telescope | `<leader>fd` | 顯示診斷訊息 |
 | LSP | `<leader>f` | 格式化程式碼 |
+| LSP | `<leader>f` (visual) | Format selected range |
 | **Git related** | | |
 | vim-fugitive | `gbb` | 顯示目前檔案的 `Git blame` |
 | gitsigns.nvim | `<leader>gb` | 切換目前行的 `Git blame` |

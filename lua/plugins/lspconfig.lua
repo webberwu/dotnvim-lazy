@@ -148,6 +148,20 @@ return {
             end
         end, { silent = true, noremap = true, desc = "LSP: toggle diagnostic display" })
 
+        vim.keymap.set("v", "<leader>f", function()
+            local start_pos = vim.api.nvim_buf_get_mark(0, "<")
+            local end_pos = vim.api.nvim_buf_get_mark(0, ">")
+
+            vim.lsp.buf.format({
+                range = {
+                    ["start"] = { line = start_pos[1] - 1, character = 0 },
+                    ["end"]   = { line = end_pos[1], character = 0 },
+                },
+            })
+            -- switch to normal mode
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+        end, { desc = "Format by range" })
+
         vim.diagnostic.config({
             virtual_text = false,
             float = {
