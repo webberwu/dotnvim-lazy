@@ -85,6 +85,7 @@ ln -s <YOUR_REPO_PATH> ~/.config/nvim
 | aerial.nvim | `mm` | 切換程式碼大綱視窗 |
 | aerial.nvim | `{` | 上一個符號 |
 | aerial.nvim | `}` | 下一個符號 |
+| indent-blankline.nvim | `<leader>i` | Toggle indent-blankline |
 | neo-tree.nvim | `<leader>e` | 切換檔案總管 |
 | LSP | `<leader><space>` | 切換 LSP 診斷訊息顯示 |
 | LSP | `]g` | 下一個診斷 |
