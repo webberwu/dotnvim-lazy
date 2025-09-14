@@ -5,7 +5,14 @@ return {
         "RRethy/vim-illuminate",
         event = "VeryLazy",
         config = function()
-            require("illuminate").configure()
+            require("illuminate").configure({
+                providers = {
+                    'regex',
+                    'treesitter',
+                    'lsp',
+                },
+                case_insensitive_regex = true,
+            })
 
             vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#505050", bold = true })
             vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#505050", bold = true })
