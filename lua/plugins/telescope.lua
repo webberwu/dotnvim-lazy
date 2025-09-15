@@ -45,6 +45,17 @@ return {
                     "--glob=!**/storage/*",
                     "--glob=!**/*.lock",
                 }, ]]
+                layout_strategy = 'flex',
+                layout_config = {
+                    width = 0.95,
+                    height = 0.95,
+                    horizontal = {
+                        preview_width = 0.5,
+                    },
+                    vertical = {
+                        preview_height = 0.5,
+                    },
+                },
                 mappings = {
                     i = {
                         ["<C-c>"] = actions.close,
