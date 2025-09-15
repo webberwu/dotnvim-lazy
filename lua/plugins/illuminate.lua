@@ -11,7 +11,7 @@ return {
                     'treesitter',
                     'lsp',
                 },
-                case_insensitive_regex = true,
+                -- case_insensitive_regex = true,
             })
 
             vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#505050", bold = true })
