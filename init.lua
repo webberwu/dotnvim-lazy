@@ -52,6 +52,7 @@ vim.opt.colorcolumn = "120"
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 99
 vim.opt.cmdheight = 2
+vim.opt.splitright = true
 
 -- Setup lazy.nvim
 require("lazy").setup("plugins", {
