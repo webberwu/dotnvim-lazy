@@ -97,7 +97,7 @@ ln -s <YOUR_REPO_PATH> ~/.config/nvim
 | vim-visual-multi | `<C-c>` (插入模式) | 離開多游標模式 |
 | vim-visual-multi | `<C-c>` (一般模式) | 離開多游標模式 |
 | **Telescope** | | |
-| Telescope | `<leader>ff` | 尋找檔案 |
+| Telescope | `<leader>ff` | 尋找檔案（使用 `<C-v>` 可垂直開啟檔案，`<C-t>` 可在新分頁開啟檔案） |
 | Telescope | `<leader>fg` | 全域搜尋 (Live Grep) |
 | Telescope | `<leader>fhf` | 尋找檔案 (包含隱藏檔) |
 | Telescope | `<leader>fhg` | 全域搜尋 (包含隱藏檔) |
