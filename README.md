@@ -43,6 +43,7 @@ ln -s <YOUR_REPO_PATH> ~/.config/nvim
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 提供更精確的語法高亮和程式碼分析 |
 | [vim-visual-multi](https://github.com/mg979/vim-visual-multi) | 多游標編輯功能 |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | 當輸入部分快捷鍵時，顯示可能的後續按鍵 |
+| [vim-maximizer](https://github.com/szw/vim-maximizer) | 切換當前 window 最大化 |
 
 ### Dependencies
 
@@ -136,6 +137,7 @@ ln -s <YOUR_REPO_PATH> ~/.config/nvim
 | markdown-preview.nvim | `<leader>ms` | 停止 Markdown 預覽 |
 | neo-tree.nvim | `<C-t>` (在 neo-tree 視窗中) | 在新分頁開啟檔案 |
 | neo-tree.nvim | `oa` (在 neo-tree 視窗中) | 將檔案加入 Avante 側邊欄 |
+| vim-maximizer | `<C-w>m` | 切換當前 window 最大化 |
 
 ## References
 
