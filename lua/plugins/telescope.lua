@@ -66,6 +66,7 @@ return {
                         ["<Down>"] = actions.move_selection_next,
                         ["<Up>"] = actions.move_selection_previous,
                         ["<C-t>"] = actions.select_tab,
+                        ["<C-s>"] = actions.select_horizontal,
                         ["<C-b>"] = actions.results_scrolling_up,
                         ["<C-f>"] = actions.results_scrolling_down,
                         ["<PageUp>"] = actions.results_scrolling_up,
@@ -76,7 +77,7 @@ return {
                     },
                     n = {
                         ["<esc>"] = actions.close,
-                        ["<C-x>"] = actions.select_horizontal,
+                        ["<C-s>"] = actions.select_horizontal,
                         ["<C-v>"] = actions.select_vertical,
                         ["<C-t>"] = actions.select_tab,
                         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
