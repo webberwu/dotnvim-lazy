@@ -77,8 +77,9 @@ vim.api.nvim_set_hl(0, "TrailingWhitespace", { fg = "#F74971", bg = "#F74971" })
 vim.cmd([[match TrailingWhitespace /\s\+$/]])
 
 -- Auto reload while file changed
-vim.opt.autoread = true
-vim.api.nvim_create_autocmd("CursorHold", {
+vim.opt.autoread = false
+vim.opt.updatetime = 1000
+vim.api.nvim_create_autocmd({ "CursorHold", "BufEnter", "VimResume" }, {
     pattern = "*",
     command = "checktime",
 })
