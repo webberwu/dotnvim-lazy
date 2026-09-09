@@ -142,14 +142,14 @@ return {
             nmap('gh', function()
                 focus_float()
                 vim.lsp.buf.hover({ border = 'rounded' })
-            end, "Hover Documentation")
+            end, "[G]oto [H]over")
             -- Lspsaga 的 hover 會砍掉所有反斜線（hover.lua:104 無條件 gsub），
             -- PHP FQN 會變成 DomainsBeaverRepositoriesShipmentRepository，
             -- 但有 gx 開連結、++keep 固定視窗等額外功能，留在 gho
             nmap('gho', function()
                 focus_float()
                 vim.cmd('Lspsaga hover_doc')
-            end, "Hover Documentation (Lspsaga)")
+            end, "[G]oto [H]over [O]ther (Lspsaga)")
             nmap('gi', function()
                 require "telescope.builtin".lsp_implementations({
                     jump_type = 'never',
@@ -162,7 +162,7 @@ return {
             nmap('<leader>D', vim.lsp.buf.type_definition, "Type [D]efinition")
             nmap('<leader>rn', "<cmd>Lspsaga rename ++project<CR>", "[R]e[n]ame")
             nmap('<leader>ca', "<cmd>Lspsaga code_action<CR>", "[C]ode [A]ction")
-            nmap('<leader>fd', require "telescope.builtin".diagnostics, "[F] [D]iagnostics")
+            nmap('<leader>fd', require "telescope.builtin".diagnostics, "[F]ind [D]iagnostics")
             nmap("<leader>f", function()
                 vim.lsp.buf.format { async = true }
             end, "[F]ormat code")
