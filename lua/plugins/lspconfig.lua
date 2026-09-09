@@ -114,7 +114,12 @@ return {
                     reuse_win = false,
                 })
             end, "[G]oto [D]efinition")
-            nmap('gh', "<cmd>Lspsaga hover_doc<CR>", "Hover Documentation")
+            -- Lspsaga 的 hover 會砍掉所有反斜線（hover.lua:104 無條件 gsub），
+            -- PHP FQN 會變成 DomainsBeaverRepositoriesShipmentRepository，故改用原生 hover
+            -- nmap('gh', "<cmd>Lspsaga hover_doc<CR>", "Hover Documentation")
+            nmap('gh', function()
+                vim.lsp.buf.hover({ border = 'rounded' })
+            end, "Hover Documentation")
             nmap('gho', vim.lsp.buf.hover, "Hover Documentation")
             nmap('gi', function()
                 require "telescope.builtin".lsp_implementations({
