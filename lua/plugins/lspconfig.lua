@@ -43,7 +43,12 @@ return {
             pyright = {},
             sqlls = {},
             -- php
-            intelephense = {},
+            intelephense = {
+                on_init = function(client)
+                    -- gh / gho 交給 phpactor，關掉避免 hover 出現兩份內容
+                    client.server_capabilities.hoverProvider = false
+                end,
+            },
             phpactor = {
                 on_init = function(client)
                     -- <leader>ca 交給 phpactor（intelephense 免費版沒有 code actions）
