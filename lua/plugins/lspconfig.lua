@@ -46,7 +46,23 @@ return {
             intelephense = {},
             phpactor = {
                 on_init = function(client)
-                    client.server_capabilities.codeActionProvider = false
+                    -- <leader>ca 交給 phpactor（intelephense 免費版沒有 code actions）
+                    -- client.server_capabilities.codeActionProvider = false
+
+                    -- gd 由 intelephense 負責（免費版就有 go to definition），關掉避免重複結果
+                    client.server_capabilities.definitionProvider = false
+
+                    -- gr 由 intelephense 負責（免費版就有 find all references），關掉避免重複結果
+                    client.server_capabilities.referencesProvider = false
+
+                    -- <leader>rn 交給 phpactor（intelephense 免費版沒有 rename）
+                    -- client.server_capabilities.renameProvider = false
+
+                    -- gi 交給 phpactor（intelephense 免費版沒有 find all implementations）
+                    -- client.server_capabilities.implementationProvider = false
+
+                    -- <leader>D 交給 phpactor（intelephense 免費版沒有 go to type definition）
+                    -- client.server_capabilities.typeDefinitionProvider = false
                 end,
                 handlers = {
                     ["textDocument/publishDiagnostics"] = function() end,
