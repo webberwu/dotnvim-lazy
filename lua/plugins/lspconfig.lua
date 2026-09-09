@@ -114,13 +114,42 @@ return {
                     reuse_win = false,
                 })
             end, "[G]oto [D]efinition")
-            -- Lspsaga 的 hover 會砍掉所有反斜線（hover.lua:104 無條件 gsub），
-            -- PHP FQN 會變成 DomainsBeaverRepositoriesShipmentRepository，故改用原生 hover
-            -- nmap('gh', "<cmd>Lspsaga hover_doc<CR>", "Hover Documentation")
+            -- 原生與 Lspsaga 的 hover 都要按第二次才進視窗（前者是 focus 既有視窗的語意、
+            -- 後者寫死在 hover.lua:333），這裡攔下一個新開的浮動視窗直接跳進去。
+            -- ponytail: hover 若無結果會白掛一次 WinNew，callback 找不到 float 就無動作
+            local focus_float = function()
+                local before = {}
+                for _, win in ipairs(vim.api.nvim_list_wins()) do
+                    before[win] = true
+                end
+                vim.api.nvim_create_autocmd('WinNew', {
+                    once = true,
+                    callback = function()
+                        vim.schedule(function()
+                            for _, win in ipairs(vim.api.nvim_list_wins()) do
+                                if not before[win]
+                                    and vim.api.nvim_win_is_valid(win)
+                                    and vim.api.nvim_win_get_config(win).relative ~= '' then
+                                    vim.api.nvim_set_current_win(win)
+                                    return
+                                end
+                            end
+                        end)
+                    end,
+                })
+            end
+
             nmap('gh', function()
+                focus_float()
                 vim.lsp.buf.hover({ border = 'rounded' })
             end, "Hover Documentation")
-            nmap('gho', vim.lsp.buf.hover, "Hover Documentation")
+            -- Lspsaga 的 hover 會砍掉所有反斜線（hover.lua:104 無條件 gsub），
+            -- PHP FQN 會變成 DomainsBeaverRepositoriesShipmentRepository，
+            -- 但有 gx 開連結、++keep 固定視窗等額外功能，留在 gho
+            nmap('gho', function()
+                focus_float()
+                vim.cmd('Lspsaga hover_doc')
+            end, "Hover Documentation (Lspsaga)")
             nmap('gi', function()
                 require "telescope.builtin".lsp_implementations({
                     jump_type = 'never',
